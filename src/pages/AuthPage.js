@@ -31,6 +31,10 @@ class AuthPage extends BasePage {
     return await this.errorMessage.textContent();
   }
 
+  async errorMessage() {
+    return this.errorMessage;
+  }
+
   async login(user, pass) {
     await this.username(user);
     await this.password(pass);

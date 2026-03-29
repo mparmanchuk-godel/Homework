@@ -11,6 +11,10 @@ class HomePage extends BasePage {
   async getAvatar() {
     return this.avatar;
   }
+
+  async avatar() {
+    return this.avatar;
+  }
 }
 
 module.exports = HomePage;

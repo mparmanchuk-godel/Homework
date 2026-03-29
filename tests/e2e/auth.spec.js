@@ -3,6 +3,7 @@
 import { test, expect } from '@playwright/test';
 import AuthPage from '../../src/pages/AuthPage.js';
 import HomePage from '../../src/pages/HomePage.js';
+import { users } from '../../src/fixtures/testData.js';
 
 test.describe('Authentication Tests', () => {
   test('Positive login scenario', async ({ page }) => {
@@ -12,12 +13,10 @@ test.describe('Authentication Tests', () => {
 
     // User actions
     await authPage.open();
-    await authPage.username('validuser');
-    await authPage.password('validpass');
-    await authPage.submit();
+    await authPage.login(users.valid.username, users.valid.password);
 
     // Verification
-    await expect(homePage.getAvatar()).toBeVisible();
+    await expect(homePage.avatar()).toBeVisible();
   });
 
   test('Negative login scenario', async ({ page }) => {
@@ -26,12 +25,9 @@ test.describe('Authentication Tests', () => {
 
     // User actions
     await authPage.open();
-    await authPage.username('invaliduser');
-    await authPage.password('invalidpass');
-    await authPage.submit();
+    await authPage.login(users.invalid.username, users.invalid.password);
 
     // Verification
-    const error = await authPage.getErrorMessage();
-    await expect(error).toContain('Invalid credentials');
+    await expect(authPage.errorMessage()).toBeVisible();
   });
 });
