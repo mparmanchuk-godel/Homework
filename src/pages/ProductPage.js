@@ -10,22 +10,16 @@ class ProductPage extends BasePage {
     this.searchInput = this.page.locator('#search');
   }
 
-  async addItemToCart() {
+  async addToCart() {
     await this.cartButton.click();
   }
 
-  async viewProductDetails(productName) {
-    await this.productList.locator(`text=${productName}`).click();
+  async title() {
+    return await this.page.locator('.product-title').textContent();
   }
 
-  async searchForProduct(query) {
-    await this.searchInput.fill(query);
-    await this.searchInput.press('Enter');
-  }
-
-  async selectTheme(theme) {
-    const dropdown = this.page.locator('#theme-dropdown');
-    await dropdown.selectOption(theme);
+  async price() {
+    return await this.page.locator('.product-price').textContent();
   }
 }
 
