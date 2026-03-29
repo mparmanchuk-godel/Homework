@@ -6,5 +6,6 @@ module.exports = {
     invalid: { username: 'invaliduser', password: 'invalidpass' }
   },
   products: ['Laptop', 'Phone'],
-  themes: ['light', 'dark']
+  themes: ['light', 'dark'],
+  expectedTotal: '$999'
 };

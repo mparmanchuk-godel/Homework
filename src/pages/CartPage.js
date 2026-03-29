@@ -9,6 +9,10 @@ class CartPage extends BasePage {
     this.checkoutButton = this.page.locator('#proceed-checkout');
   }
 
+  async open() {
+    await this.navigateTo('https://example.com/cart');
+  }
+
   async items() {
     return this.cartItems;
   }
