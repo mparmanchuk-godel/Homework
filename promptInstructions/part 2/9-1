@@ -1,0 +1,22 @@
+Act as a Senior SDET fixing a broken locator in a Playwright Page Object.
+
+Context:
+- Stack: JavaScript + Playwright
+- File: src/pages/SomePage.js
+- The locator is outdated
+- The correct attribute is: data-testid="{{newTestId}}"
+
+Task:
+- Find the outdated locator
+- Replace it with a stable selector using data-testid
+- Use Playwright best practice (getByTestId or equivalent)
+
+Strict requirements:
+- Do NOT modify unrelated code
+- Do NOT rename methods
+- Do NOT change method signatures
+- Do NOT refactor anything else
+- Only update the locator
+
+Output:
+- Return the full corrected file

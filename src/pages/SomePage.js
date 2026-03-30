@@ -5,7 +5,7 @@ const BasePage = require('./BasePage.js');
 class SomePage extends BasePage {
   constructor(page) {
     super(page);
-    this.button = this.page.locator('.btn-primary');
+    this.button = this.page.getByTestId('primary-button');
     this.input = this.page.locator('[data-testid="input-field"]');
     this.textElement = this.page.locator('#display-text');
   }
