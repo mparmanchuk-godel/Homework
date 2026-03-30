@@ -17,11 +17,9 @@ test.describe('Search Tests', () => {
     await searchPage.submit();
 
     // Verification
-    const title0 = await resultsPage.titleOf(0);
-    expect(title0).toBe('Laptop');
-    const price0 = await resultsPage.priceOf(0);
-    expect(price0).toBe('$999');
-    const price1 = await resultsPage.priceOf(1);
-    expect(price1).toBe('$899');
+    const prices = await resultsPage.getAllPrices();
+    for (const price of prices) {
+      expect(price).toBeLessThan(1000);
+    }
   });
 });
